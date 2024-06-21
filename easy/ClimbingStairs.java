@@ -1,35 +1,23 @@
 package easy;
 
-import java.util.*;
-
-public class ClimbingStairs {
-
-    public int climbStairs(int n) {
-        // Create a HashMap to store the results of subproblems
-        Map<Integer, Integer> memo = new HashMap<>();
-        return climbStairsMemo(n, memo);
+class ClimbingStairs {
+    public static void main(String[] args) {
+        int n = 3; // You can change this to test other values of n
+        System.out.println(climbStairs(n));
     }
 
-    private int climbStairsMemo(int n, Map<Integer, Integer> memo) {
+    public static int climbStairs(int n) {
         // Base cases
         if (n < 0) {
             return 0;
         }
-        if (n == 0 || n == 1) {
+        if (n == 0) {
             return 1;
         }
-        
-        if (memo.containsKey(n)) {
-            return memo.get(n);
+        if (n == 1) {
+            return 1;
         }
-        int result = climbStairsMemo(n - 1, memo) + climbStairsMemo(n - 2, memo);
-        memo.put(n, result);
-        return result;
-    }
-
-    public static void main(String[] args) {
-        ClimbingStairs solution = new ClimbingStairs();
-        int n = 3; // You can change this to test other values of n
-        System.out.println(solution.climbStairs(n));
+        // Recursive case
+        return climbStairs(n - 1) + climbStairs(n - 2);
     }
 }
