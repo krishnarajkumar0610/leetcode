@@ -1,9 +1,4 @@
 package medium;
-
-import java.util.List;
-
-import org.w3c.dom.NodeList;
-
 public class RotateList {
     static class ListNode {
         int val;
