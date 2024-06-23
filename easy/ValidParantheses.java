@@ -10,21 +10,23 @@ public class ValidParantheses {
 
     public static boolean findValidOrNot(String s) {
         Stack<Character> stack = new Stack<>();
-        for (char parantheses : s.toCharArray()) {
-            if (parantheses == '(' || parantheses == '{' || parantheses == '[') {
-                stack.add(parantheses);
+        char top = '(';
+        for (char parentheses : s.toCharArray()) {
+            if (parentheses == '(' || parentheses == '{' || parentheses == '[') {
+                stack.push(parentheses);
             } else {
                 if (stack.isEmpty()) {
                     return false;
                 }
-                char poppedElement = stack.pop();
-                if (parantheses == ')' && poppedElement != '(' ||
-                        parantheses == '}' && poppedElement != '{' ||
-                        parantheses == ']' && poppedElement != '[') {
+                top = stack.pop();
+                if ((parentheses == ')' && top != '(') ||
+                        (parentheses == '}' && top != '{') ||
+                        (parentheses == ']' && top != '[')) {
                     return false;
                 }
             }
         }
-        return true;
+
+        return stack.isEmpty();
     }
 }
