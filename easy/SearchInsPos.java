@@ -4,7 +4,7 @@ public class SearchInsPos {
     public static void main(String[] args) {
         int[] arr = { 1,3,5,6 };
 
-        System.out.println(findInsPos(arr, 2));
+        System.out.println(findInsPos(arr, 7));
     }
 
     public static int findInsPos(int[] arr, int target) {
@@ -19,9 +19,7 @@ public class SearchInsPos {
             } else {
                 end = mid - 1;
             }
-        }
-        System.out.println("St:"+st);
-        System.out.println("End:"+end);
+        }        
         return st;
     }
 }
