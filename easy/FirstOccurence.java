@@ -2,13 +2,11 @@ package easy;
 
 public class FirstOccurence {
     public static void main(String[] args) {
-        // System.out.println(strStr("leetcode", "leeto"));
-        String a = "krishna";
-        String b = "ra";
-        int index = a.indexOf(b);
-        System.out.println(index);
+        System.out.println(strStr("krishna", "hna"));
     }
 
-    public static void strStr(String haystack, String needle) {
+    public static int strStr(String haystack, String needle) {
+        int index = haystack.indexOf(needle);
+        return index == -1 ? -1 : index;
     }
 }
