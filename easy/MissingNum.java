@@ -7,12 +7,11 @@ public class MissingNum {
         int[] nums = {3, 0, 1};
         System.out.println(findMissing(nums));
     }
-
-    public static int findMissing(int[] nums) {
+    public static int findMissing(int[] nums){
         Arrays.sort(nums);
-        for (int i = 0; i < nums.length; i++) {
-            if (i != nums[i])
-                return i;
+        for(int i=0;i<nums.length;i++){
+            if(i != nums[i])
+                    return i;
         }
         return nums.length;
     }
