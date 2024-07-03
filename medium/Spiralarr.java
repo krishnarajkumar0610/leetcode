@@ -1,48 +1,49 @@
 package medium;
 
+import java.util.*;
+
 public class Spiralarr {
     public static void main(String[] args) {
         int[][] arr = {
-                { 1, 2, 3 },
-                { 7, 8, 9 },
-                { 7, 8, 9 },
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
         };
-        spiralarr(arr);
+        List<Integer> matrix = spiralarr(arr);
+        System.out.println(matrix);
     }
 
-    public static void spiralarr(int[][] arr) {
-        if (arr == null || arr.length == 0) {
-            return;
+    public static List<Integer> spiralarr(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        if (matrix == null || matrix.length == 0) {
+            return result;
         }
-
-        int top = 0, bottom = arr.length - 1;
-        int left = 0, right = arr[0].length - 1;
-
-        while (top <= bottom && left <= right) {
-            // Print top row
-            for (int i = left; i <= right; i++) {
-                System.out.print(arr[top][i] + " ");
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int rowStart = 0, rowEnd = rows - 1;
+        int colStart = 0, colEnd = cols - 1;
+        while (rowStart <= rowEnd && colStart <= colEnd) {
+            for (int i = colStart; i <= colEnd; i++) {
+                result.add(matrix[rowStart][i]);
             }
-            top++;
-
-            // Print right column
-            for (int i = top; i <= bottom; i++) {
-                System.out.print(arr[i][right] + " ");
+            rowStart++;
+            for (int i = rowStart; i <= rowEnd; i++) {
+                result.add(matrix[i][colEnd]);
             }
-            right--;
-
-            // Print bottom row if there are remaining rows
-            for (int i = right; i >= left; i--) {
-                System.out.print(arr[bottom][i] + " ");
+            colEnd--;
+            if (rowStart <= rowEnd) {
+                for (int i = colEnd; i >= colStart; i--) {
+                    result.add(matrix[rowEnd][i]);
+                }
+                rowEnd--;
             }
-            bottom--;
-
-            // Print left column if there are remaining columns
-            for (int i = bottom; i >= top; i--) {
-                System.out.print(arr[i][left] + " ");
+            if (colStart <= colEnd) {
+                for (int i = rowEnd; i >= rowStart; i--) {
+                    result.add(matrix[i][colStart]);
+                }
+                colStart++;
             }
-            left++;
-
         }
+        return result;
     }
 }
