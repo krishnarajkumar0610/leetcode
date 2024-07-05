@@ -4,7 +4,7 @@ import java.util.*;
 
 public class LongestSubStringNoDup {
     public static void main(String[] args) {
-        String s = "abcabcbb";
+        String s = "abcabcbbefijkl";
         System.out.println(findSubString(s));
     }
 
@@ -19,7 +19,6 @@ public class LongestSubStringNoDup {
             }
             set.add(s.charAt(right));
             maxLength = Math.max(maxLength, right - left + 1);
-            System.out.println("Current set:" + set);
         }
         return maxLength;
     }
