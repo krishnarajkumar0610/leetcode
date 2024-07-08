@@ -1,7 +1,5 @@
 package easy;
 
-import java.util.Arrays;
-
 public class BuySellStock {
     public static void main(String[] args) {
         int[] stock = { 2, 4, 1 };
