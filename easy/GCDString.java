@@ -2,7 +2,7 @@ package easy;
 
 public class GCDString {
     public static void main(String[] args) {
-
+        System.out.println(gcdOfStrings("ABCABC", "ABC"));
     }
 
     public static String gcdOfStrings(String str1, String str2) {
